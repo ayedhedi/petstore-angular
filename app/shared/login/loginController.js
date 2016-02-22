@@ -9,12 +9,9 @@ loginMod
         AuthenticationService.ClearCredentials();
         $scope.login = function () {
             $scope.dataLoading = true;
-            AuthenticationService.Login($scope.username, $scope.password, function(response) {
-                if(response.success) {
+            AuthenticationService.Login($scope.username, $scope.password, function() {
+                if($rootScope.authenticated === true) {
                     $location.path('/pets');
-                } else {
-                    $scope.error = response.message;
-                    $scope.dataLoading = false;
                 }
             });
         };

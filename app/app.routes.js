@@ -12,8 +12,7 @@ petStoreApp
             })
             .when('/pets', {
                 templateUrl: 'app/components/pets/petsView.html',
-                controller: 'PetsCtrl',
-                controllerAs: 'PetsCtrl'
+                controller: 'PetsCtrl'
             })
             .when('/pet/:petId', {
                 templateUrl: 'app/components/pet/petView.html',

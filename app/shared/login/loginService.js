@@ -4,16 +4,15 @@
 
 loginMod
 
-    .factory('AuthenticationService', ['$rootScope','$http',
+    .factory('AuthenticationService',
         function ($rootScope, $http) {
             var service = {};
             service.Login = function (username, password, callback) {
-
                 var headers = {
                     authorization : "Basic " + btoa(username + ":" + password)
                 };
-
-                $http.get('login', {headers : headers}).success(function(data) {
+                console.log(username+":"+password);
+                $http.get('/apipetsotre/login', {headers : headers}).success(function(data) {
                     $rootScope.authenticated = !!data.name;
                     callback();
                 }).error(function() {
@@ -27,7 +26,7 @@ loginMod
             };
 
             return service;
-        }]
+        }
     )
 
 ;
